@@ -1,5 +1,5 @@
 ---
-import Logo from "../assets/favicon/logo.png";
+import Logo from "../assets/icons/logo.svg";
 import Button from "../components/Button.astro";
 const currentPath = Astro.url.pathname;
 ---
@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
     class="flex items-center justify-between px-4 gap-8 border-b-2 border-b-indigo-100 h-20"
 >
     <a href="/">
-        <img src={Logo} alt="VIS'SPORT" class="h-5 w-auto" />
+        <Logo />
     </a>
     <button
         id="menu-btn"
@@ -29,52 +29,56 @@ const currentPath = Astro.url.pathname;
         class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-indigo-50 visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
         aria-hidden="true"
     >
-        <ul class="flex flex-col gap-4 lg:flex-row">
+        <ul class="flex flex-col gap-2 lg:flex-row">
             <li>
                 <a
                     class={`block p-4 rounded-lg text-gray-500 ${currentPath === "/properties" ? "text-indigo-600 font-bold max-lg:bg-indigo-100 max-lg:rounded-lg" : ""}`}
-                    href="/properties">Rent</a
+                    href="/programme">Programme</a
                 >
             </li>
             <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/buy">Buy</a
+                <a class="block p-4 rounded-lg text-gray-500" href="/apropos"
+                    >A propos</a
                 >
             </li>
             <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/sell"
-                    >Sell</a
+                <a class="block p-4 rounded-lg text-gray-500" href="/Activités"
+                    >Activités</a
                 >
             </li>
             <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/manage"
-                    >Manage property</a
+                <a class="block p-4 rounded-lg text-gray-500" href="/Invités"
+                    >Invités</a
                 >
             </li>
             <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/resources"
-                    >Resources</a
+                <a
+                    class="block p-4 rounded-lg text-gray-500"
+                    href="/Infos Pratique">Infos Pratiques</a
+                >
+            </li>
+            <li>
+                <a class="block p-4 rounded-lg text-gray-500" href="/Contact"
+                    >Contact</a
                 >
             </li>
         </ul>
         <div class="flex items-center justify-center gap-4 px-4">
-            <Button variant="outlined" url="/login" text="Login" />
-            <Button variant="dark" url="/signup" text="Sign Up" />
+            <Button variant="outlined" url="/login" text="S'inscrire" />
+            <Button variant="dark" url="/signup" text="Se connecter" />
         </div>
     </nav>
 </header>
 
 <script>
-    // On cible les éléments à modifier
     const toggle = document.querySelector("#menu-btn");
     const nav = document.querySelector("#menu");
     const page = document.body;
 
-    // Vérifier si les éléments existent avant d'ajouter l'événement
     if (toggle && nav) {
         toggle.addEventListener("click", () => {
             const isOpen = toggle.ariaExpanded === "true";
             const isClosed = !isOpen;
-            // Mise à jour des attributs ARIA pour accessibilité
             toggle.ariaExpanded = String(isClosed);
             nav.ariaHidden = String(isOpen);
             page.classList.toggle("noscroll", isClosed);

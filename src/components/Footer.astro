@@ -1,95 +1,74 @@
 ---
-import Logo from "../assets/icons/Logo.svg";
-import Facebook from "../assets/icons/facebook 1.webp";
-import Instagram from "../assets/icons/instagram 1.webp";
-import Twitter from "../assets/icons/X (twitter).webp";
-import Youtube from "../assets/icons/youtube 1.webp";
+import Logo from "../assets/icons/logo.svg";
+import Facebook from "../assets/icons/IconFacebook.svg";
+import Instagram from "../assets/icons/IconInstagram.svg";
+import Twitter from "../assets/icons/IconTwitter.svg";
+import Youtube from "../assets/icons/IconYoutube.svg";
 ---
 
 <footer
-    class="container space-y-10 pt-20 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0 bg-black"
+    class="w-full mt-auto space-y-25 pt-20 lg:grid lg:grid-cols-6 lg:gap-5 lg:space-y-0 bg-black"
 >
     <Logo />
 
     <nav
-        class="px-5 columns-2 gap-8 space-y-8 text-sm lg:text-base lg:columns-3 lg:col-span-3 lg:px-0 *:break-inside-avoid *:space-y-3"
+        class="px-5 columns-1 text-sm lg:text-base lg:columns-5 lg:col-span-4 lg:px-0"
     >
         <div>
-            <h4 class="uppercase">Sell at home</h4>
-            <ul class="text-gray-400">
-                <li><a href="/request">Request an offer</a></li>
-                <li><a href="/pricing">Pricing</a></li>
-                <li><a href="/reviews">Reviews</a></li>
-                <li><a href="/stories">Stories</a></li>
+            <ul class="text-white">
+                <li>
+                    <a class="block p-2 rounded-lg text-white" href="/programme"
+                        >Programme</a
+                    >
+                </li>
+                <li>
+                    <a class="block p-2 rounded-lg text-white" href="/A propos"
+                        >A propos</a
+                    >
+                </li>
+                <li>
+                    <a class="block p-2 rounded-lg text-white" href="/Activités"
+                        >Activités</a
+                    >
+                </li>
+                <li>
+                    <a class="block p-2 rounded-lg text-white" href="/Invités"
+                        >Invités</a
+                    >
+                </li>
+                <li>
+                    <a
+                        class="block p-2 rounded-lg text-white"
+                        href="/Infos Pratique">Infos Pratiques</a
+                    >
+                </li>
             </ul>
         </div>
-        <div>
-            <h4 class="uppercase">Buy a home</h4>
-            <ul class="text-gray-400">
-                <li><a href="/buy">Buy</a></li>
-                <li><a href="/finance">Finance</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="uppercase">Buy, rent and sell</h4>
-            <ul class="text-gray-400">
-                <li><a href="/buy-and-sell">Buy and sell properties</a></li>
-                <li><a href="/rent">Rent home</a></li>
-                <li><a href="/builder">Builder trade-up</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="uppercase">Terms &amp; privacy</h4>
-            <ul class="text-gray-400">
-                <li><a href="trust">Trust & Safety</a></li>
-                <li><a href="/terms">Terms of Service</a></li>
-                <li><a href="/privacy">Privacy Policy</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="uppercase">About</h4>
-            <ul class="text-gray-400">
-                <li><a href="/company">Company</a></li>
-                <li><a href="/how-it-works">How it works</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/investors">Investors</a></li>
-            </ul>
-        </div>
-        <div class="space-y-3">
-            <h4 class="uppercase">Resources</h4>
-            <ul class="text-gray-400">
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/guides">Guides</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/help">Help Center</a></li>
-            </ul>
-        </div>
+        <div></div>
     </nav>
     <div
-        class="px-5 text-gray-400 border-t border-gray-300 py-8 space-y-6 text-center lg:col-span-4 lg:flex lg:justify-around lg:items-center lg:space-y-0"
+        class="px-40 text-gray-200 border-t border-white py-10 space-y-6 text-center lg:col-span-6 lg:flex lg:justify-center lg:items-center lg:space-y-0"
     >
         <p>©2021 Estatery. All rights reserved</p>
-        <ul class="flex gap-12 justify-center">
-            <li>
+        <ul class="flex justify-center gap-3">
+            <li class="flex items-center gap-4">
                 <a href="https://facebook.com" aria-label="Facebook"
-                    ><Facebook /></a
+                    ><Facebook class="w-8 h-8 text-white fill-current" /></a
                 >
             </li>
-            <li>
+            <li class="flex items-center justify-end gap-4">
                 <a href="https://instagram.com" aria-label="Instagram"
-                    ><Instagram /></a
+                    ><Instagram class="w-8 h-8 text-white fill-current" /></a
                 >
             </li>
-            <li>
+            <li class="flex items-center justify-end gap-4">
                 <a href="https://twitter.com" aria-label="Twitter"
-                    ><Twitter /></a
+                    ><Twitter class="w-14 h-14 text-white fill-current" /></a
                 >
             </li>
-            <li>
-                <a href="https://linkedin.com" aria-label="Youtube"
-                    ><Youtube /></a
+            <li class="flex items-center justify-end gap-4">
+                <a href="https://youtube.com" aria-label="Youtube"
+                    ><Youtube class="w-8 h-8 text-white fill-current" /></a
                 >
             </li>
         </ul>

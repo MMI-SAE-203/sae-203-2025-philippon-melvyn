@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="CONTACT">
+    <main>
+        <section>
+            <p>
+                La page Contact du festival Vis'Sport est conçue pour répondre à
+                toutes vos questions et faciliter la gestion de vos billets. Si
+                vous devez annuler ou rendre votre billet, vous y trouverez un
+                formulaire simple à remplir, ainsi que les conditions de
+                remboursement.
+            </p>
+            <img
+                src="../assets/img/image(2).webp"
+                alt="image du monde du cinema"
+                loading="lazy"
+            />
+            <p>
+                Vous pouvez également utiliser cette page pour signaler tout
+                problème rencontré, qu'il s'agisse d'une difficulté technique ou
+                d'une question concernant l'événement. L'équipe du festival est
+                disponible pour vous assister rapidement et efficacement via ce
+                canal.
+            </p>
+        </section>
+
+        <section>
+            <h2>Formulaire</h2>
+            <form>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" />
+
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" />
+
+                <label for="adresses">Adresses</label>
+                <input type="text" id="adresses" name="adresses" />
+
+                <button type="submit">Envoyer</button>
+            </form>
+
+            <form action="submit_comment.php" method="POST">
+                <textarea
+                    name="comment"
+                    placeholder="Écrivez votre commentaire ici..."></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Coordonnées</h2>
+            <p>sophie.martin@vissport.com – Responsable Billetterie</p>
+            <p>julien.dupont@vissport.com – Support Technique</p>
+            <p>claire.durand@vissport.com – Service Client</p>
+            <p>Téléphone : 03 81 93 89 86</p>
+        </section>
+
+        <section>
+            <h2>Commentaire</h2>
+            <p>Votre avis nous intéresse alors participez !</p>
+            <form action="submit_comment.php" method="POST">
+                <textarea
+                    name="comment"
+                    placeholder="Écrivez votre commentaire ici..."></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+</Layout>

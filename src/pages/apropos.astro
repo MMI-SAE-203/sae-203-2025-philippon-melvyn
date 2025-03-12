@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import image from "../assets/img/image 3.webp";
+import imageA from "../assets/img/axone de montbeliard (1) 1.webp";
+import Hero from "../components/Hero.astro";
+---
+
+<Layout title="A PROPOS">
+    <Hero page="apropos" />
+    <Image
+        src={imageA}
+        alt="Affiche de Ça Chapitre 2"
+        width={1000}
+        height={550}
+        class="mx-auto my-10 rounded-lg shadow-lg"
+    />
+    <main class="px-6 md:px-16 py-12">
+        <section class="mb-16">
+            <h5 class="text-3xl font-semibold text-center text-orange-500 mb-4">
+                Découvrez où se déroule le festival.
+            </h5>
+            <p
+                class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto"
+            >
+                Le Vis'Sport se tiendra à Montbéliard, au cœur de la région !
+                Plus précisément, le festival aura lieu à L'Axone, la célèbre
+                salle polyvalente de la ville. Ce lieu spacieux et moderne est
+                idéal pour accueillir les festivaliers dans une ambiance
+                conviviale et sportive. Que vous soyez de la région ou
+                d'ailleurs, venez profiter de cet événement unique dans ce cadre
+                exceptionnel !
+            </p>
+        </section>
+        <section class="text-center mb-16">
+            <div class="max-w-lg mx-auto">
+                <Image
+                    src={image}
+                    alt="Affiche de Ça Chapitre 2"
+                    width={500}
+                    height={750}
+                    class="mx-auto rounded-lg shadow-lg mb-6"
+                />
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Montbéliard
+                </h2>
+                <p
+                    class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto mb-4"
+                >
+                    Montbéliard, quant à elle, est une ville dynamique et
+                    culturelle, offrant aux visiteurs de nombreuses possibilités
+                    de restauration, d’hébergement, et de loisirs à proximité du
+                    festival. En plus du festival, vous pourrez découvrir son
+                    patrimoine historique, ses parcs et son charme régional.
+                    L'emplacement de L'Axone, combiné à la richesse de
+                    Montbéliard, garantit une expérience agréable et complète
+                    pour tous les festivaliers.
+                </p>
+                <p
+                    class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto"
+                >
+                    Profitez également du patrimoine historique et des activités
+                    locales.
+                </p>
+            </div>
+        </section>
+    </main>
+</Layout>
