@@ -1,0 +1,142 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="INFOS PRATIQUES">
+    <section
+        class="relative w-full h-screen bg-gray-900 text-white flex items-center justify-center"
+    >
+        <div
+            class="absolute inset-0 bg-cover bg-center opacity-40"
+            style="background-image: url('/src/assets/img/image 6.webp');"
+        >
+        </div>
+        <div class="relative text-center max-w-3xl px-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-orange-500 mb-4">
+                Infos Pratiques
+            </h1>
+            <p class="mt-4 text-lg md:text-xl"></p>
+        </div>
+    </section>
+
+    <main class="px-6 md:px-16 py-12">
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold text-orange-500 mb-6">
+                🎟 Tarifs
+            </h2>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                <ul class="space-y-2 text-lg text-gray-700">
+                    <li><strong>Billet simple :</strong> 10€</li>
+                    <li><strong>Pass 3 jours :</strong> 25€</li>
+                    <li><strong>Abonnement annuel :</strong> 80€</li>
+                    <li>
+                        <strong>Tarif réduit :</strong> -20% (étudiants, chômeurs,
+                        +65 ans)
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold text-orange-500 mb-6">
+                📍 Lieux
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800">
+                        Salle principale
+                    </h3>
+                    <p class="text-lg text-gray-700">Axone de Montbéliard</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800">
+                        Événements extérieurs
+                    </h3>
+                    <p class="text-lg text-gray-700">
+                        Parc du Festival, Avenue des Sports, 25200 Montbéliard
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold text-orange-500 mb-6">
+                Hébergement
+            </h2>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                <p class="text-lg text-gray-700">
+                    Voici quelques options d'hébergement à proximité :
+                </p>
+                <ul class="mt-4 space-y-2 text-lg text-gray-700">
+                    <li>Hôtel Vis'Sport - 5 min à pied</li>
+                    <li>Camping du Festival - 10 min en voiture</li>
+                    <li>Airbnb disponibles dans le centre-ville</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold text-orange-500 mb-6">
+                Transport
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800">
+                        En train
+                    </h3>
+                    <p class="text-lg text-gray-700">
+                        Gare de Montbéliard à 10 min à pied.
+                    </p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800">
+                        En voiture
+                    </h3>
+                    <p class="text-lg text-gray-700">
+                        Parking gratuit à proximité.
+                    </p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800">
+                        Covoiturage
+                    </h3>
+                    <p class="text-lg text-gray-700">
+                        Rejoignez notre groupe de covoiturage pour partager les
+                        trajets.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold text-orange-500 mb-6">❓ FAQ</h2>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                <div x-data="{ open: null }" class="space-y-4">
+                    <div>
+                        Où acheter les billets ?
+
+                        <p x-show="open === 1" class="text-gray-700 mt-2">
+                            Les billets sont disponibles en ligne sur notre site
+                            et sur place.
+                        </p>
+                    </div>
+                    <div>
+                        Puis-je me faire rembourser ?
+
+                        <p x-show="open === 2" class="text-gray-700 mt-2">
+                            Oui, sous certaines conditions, contactez-nous pour
+                            plus de détails.
+                        </p>
+                    </div>
+                    <div>
+                        Y a-t-il des places PMR ?
+                        <p x-show="open === 3" class="text-gray-700 mt-2">
+                            Oui, des espaces sont réservés pour les personnes à
+                            mobilité réduite.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

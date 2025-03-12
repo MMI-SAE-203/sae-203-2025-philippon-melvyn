@@ -22,11 +22,6 @@ import imageH4 from "../assets/photo de profil/Homme 4 webp.webp";
             <h1 class="text-4xl md:text-6xl font-bold text-orange-500 mb-4">
                 A propos de notre festival
             </h1>
-            <p class="mt-4 text-lg md:text-xl">
-                Cette page vous plonge au cœur du Vis'Sport, un festival unique
-                qui allie sport et cinéma. Découvrez son concept, son programme
-                et tout ce qui fait son originalité !
-            </p>
         </div>
     </section>
 
@@ -125,8 +120,11 @@ import imageH4 from "../assets/photo de profil/Homme 4 webp.webp";
                         </p>
                     </div>
                 </div>
-                <div class="text-right flex items-center gap-4">
-                    <div>
+                
+                <div
+                    class="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+                >
+                    <div class="text-left md:text-right">
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">
                             Équipe Technique
                         </h3>
@@ -136,27 +134,31 @@ import imageH4 from "../assets/photo de profil/Homme 4 webp.webp";
                             et l'organisation du festival.
                         </p>
                     </div>
-                    <Image
-                        src={imageH3}
-                        alt="Équipe technique"
-                        width={100}
-                        height={100}
-                        class="rounded-full shadow-md"
-                    />
-                    <Image
-                        src={imageF4}
-                        alt="Équipe technique"
-                        width={100}
-                        height={100}
-                        class="rounded-full shadow-md"
-                    />
-                    <Image
-                        src={imageH1}
-                        alt="Équipe technique"
-                        width={100}
-                        height={100}
-                        class="rounded-full shadow-md"
-                    />
+                    <div
+                        class="flex justify-center md:justify-end flex-wrap gap-4"
+                    >
+                        <Image
+                            src={imageH3}
+                            alt="Équipe technique"
+                            width={80}
+                            height={80}
+                            class="rounded-full shadow-md w-16 md:w-24"
+                        />
+                        <Image
+                            src={imageF4}
+                            alt="Équipe technique"
+                            width={80}
+                            height={80}
+                            class="rounded-full shadow-md w-16 md:w-24"
+                        />
+                        <Image
+                            src={imageH1}
+                            alt="Équipe technique"
+                            width={80}
+                            height={80}
+                            class="rounded-full shadow-md w-16 md:w-24"
+                        />
+                    </div>
                 </div>
             </div>
         </section>

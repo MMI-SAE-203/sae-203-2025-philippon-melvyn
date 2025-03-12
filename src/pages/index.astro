@@ -8,194 +8,228 @@ import imageA from "../assets/img/axone de montbeliard (1) 1.webp";
 import image4 from "../assets/img/image 4.webp";
 import image5 from "../assets/img/image 6.webp";
 import image6 from "../assets/img/image-8.webp";
-import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
+import logo1 from "../assets/partenaires/partenaire1.webp";
+import logo2 from "../assets/partenaires/partenaire2.webp";
+import logo3 from "../assets/partenaires/partenaire3.webp";
+import logo4 from "../assets/partenaires/partenaire4.webp";
 ---
 
 <Layout title="ACCUEIL">
-    <main>
-        <Hero page="index" />
-        <div>
-            <section>
-                <p class="text-xl font-medium text-center mt-20 mb-20 px-80">
-                    Le Vis'Sport est un festival unique qui fusionne l'univers
-                    de l'audiovisuel et celui du sport, créant un espace de
-                    partage et de découverte pour tous.
-                </p>
-            </section>
-            <Image
-                src={image}
-                alt="representation du festival"
-                width={400}
-                height={750}
-                class="mx-auto box-shadow rounded-lg"
-            />
-            <section>
-                <p class="text-xl font-medium text-center mt-20 mb-20 px-40">
+    <Hero page="index">
+        <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-center text-white pl-8 py-16"
+        >
+            <h1 class="text-4xl font-bold mb-4">Vis'Sport Festival</h1>
+            <p class="text-xl max-w-2xl">Du 15 au 18 juin 2024 - Montbéliard</p>
+        </div>
+    </Hero>
+
+    <main class="py-12">
+        <section class="px-6 max-w-5xl mx-auto text-left space-y-6">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="text-xl text-gray-700 space-y-6 md:w-1/2">
+                    <p>
+                        Le Vis'Sport est un festival unique qui fusionne
+                        l'univers de l'audiovisuel et du sport, créant un espace
+                        de partage et de découverte pour tous.
+                    </p>
+                    <p>
+                        Cet événement vise à offrir une expérience immersive en
+                        alliant le cinéma et le sport sous toutes leurs formes,
+                        à travers des projections, des compétitions et des
+                        rencontres.
+                    </p>
+                    <p>
+                        Nous voulons que chaque participant vive des moments
+                        inoubliables, qu'ils soient spectateurs ou acteurs du
+                        festival. Le Vis'Sport incarne l'énergie, la
+                        convivialité et l'innovation !
+                    </p>
+                </div>
+                <Image
+                    src={image}
+                    alt="Représentation du festival"
+                    width={300}
+                    height={500}
+                    class="rounded-lg shadow-lg w-full md:w-1/2"
+                />
+            </div>
+            <div class="mt-10">
+                <p class="text-xl font-medium text-gray-700">
                     Symbolisé par le soleil, il incarne la joie, l'énergie et
                     l'ouverture à tous les publics. Que vous soyez amateur de
                     cinéma, de sport, ou simplement curieux, le Vis'Sport vous
-                    propose une programmation dynamique et accessible. Avec un
-                    esprit inclusif et des tarifs adaptés aux petits budgets, le
-                    festival vous accueille pour célébrer la passion du sport et
-                    de l'image dans une ambiance chaleureuse et conviviale.
+                    propose une programmation dynamique et accessible.
                 </p>
-            </section>
-        </div>
+            </div>
+        </section>
 
+        <!-- Sections principales -->
         <section
-            class="bg-gradient-to-b from-orange-500 to-orange-300 py-10 px-6"
+            class="bg-gradient-to-b from-orange-500 to-orange-300 py-12 mt-16"
         >
-            <div class="max-w-4xl mx-auto space-y-10">
-                <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row items-start gap-8">
                     <Image
                         src={image1}
-                        alt="Image d'un sportif dessiné"
-                        width={500}
-                        height={750}
-                        class="w-64 md:w-80 rounded-lg shadow-lg"
+                        alt="Sportif dessiné"
+                        width={250}
+                        height={400}
+                        class="w-48 md:w-56 rounded-lg shadow-lg"
                     />
-                    <div class="text-white text-lg space-y-4">
-                        <p>
+                    <div class="text-white text-lg space-y-3 text-left">
+                        <p class="text-2xl font-semibold">
                             Le Vis'Sport propose aussi une version numérique,
                             permettant à ceux éloignés du lieu de participer.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row items-center gap-6">
+                <div
+                    class="flex flex-col md:flex-row-reverse items-start gap-8"
+                >
                     <Image
                         src={image2}
-                        alt="Sunny, la mascotte du festival"
-                        width={500}
-                        height={750}
-                        class="w-64 md:w-80 rounded-lg shadow-lg"
+                        alt="Sunny, la mascotte"
+                        width={150}
+                        height={500}
+                        class="w-48 md:w-56 rounded-lg shadow-lg"
                     />
-                    <div class="text-white text-lg space-y-4">
-                        <p class="font-semibold">
-                            Voici Sunny, la mascotte du Vis'Sport !
+                    <div class="text-white text-lg space-y-3 text-left">
+                        <p class="font-semibold text-2xl">
+                            Voici Sunny, la mascotte du Vis'Sport ! Ce soleil
+                            rayonnant est à la fois super gentil et
+                            ultra-sportif.
                         </p>
-                        <p>
-                            Toujours souriant, ce soleil rayonnant est à la fois
-                            super gentil et ultra-sportif.
-                        </p>
-                        <p>
-                            Passionné par tous les sports, de la boxe au basket,
-                            Sunny adore partager son énergie positive avec les
-                            festivaliers.
-                        </p>
-                        <p>
+                        <p class="font-semibold text-2xl">
                             Que ce soit pour encourager sur le terrain ou dans
                             les gradins, il est là pour apporter de la chaleur
-                            et de la bonne humeur à tous !
+                            et de la bonne humeur à tous !
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="max-w-4xl mx-auto py-12 px-6 space-y-10">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="text-center space-y-4">
+        <!-- Aperçu des sections principales -->
+        <div
+            class="max-w-5xl mx-auto py-12 px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12"
+        >
+            <div class="bg-white rounded-lg shadow-lg p-6 text-left">
+                <a href="/lieu" class="block">
                     <Image
                         src={imageA}
-                        alt="Axone de Montbéliard, un grand bâtiment moderne"
+                        alt="L'Axone Montbéliard"
                         width={300}
                         height={450}
-                        class="mx-auto w-full h-auto rounded-lg shadow-md"
+                        class="mx-auto w-full rounded-lg shadow-md"
                     />
-                    <h3 class="text-white font-semibold text-2xl uppercase">
-                        Section Films
-                    </h3>
-                    <p class="text-white text-base max-w-lg mx-auto">
-                        Explorez les "Films" : affiches, synopsis, bande-annonce
-                        et infos clés !
-                    </p>
-                    <div class="mt-4 flex justify-center gap-4">
-                        <Button
-                            variant="outlined"
-                            url="/engagements"
-                            text="Plus d'infos"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="text-center space-y-4">
-                    <Image
-                        src={image4}
-                        alt="Liens vers la page activités"
-                        width={300}
-                        height={450}
-                        class="mx-auto w-full h-auto rounded-lg shadow-md"
-                    />
-                    <h3 class="text-gray-800 font-semibold text-2xl uppercase">
+                    <h3
+                        class="text-gray-900 font-semibold text-2xl mt-4 hover:text-orange-500 cursor-pointer"
+                    >
                         Lieu
                     </h3>
-                    <p class="text-gray-600 text-base max-w-lg mx-auto">
-                        Découvrez les "Lieux" : cartes et adresses des salles et
-                        événements à ne pas manquer !
+                    <p class="text-gray-600">
+                        Découvrez où se déroule le festival.
                     </p>
-                    <div class="mt-4 flex justify-center gap-4">
-                        <Button
-                            variant="outlined"
-                            url="/engagements"
-                            text="Plus d'infos"
-                        />
-                    </div>
-                </div>
+                </a>
             </div>
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="text-center space-y-4">
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-left">
+                <a href="/programme" class="block">
                     <Image
-                        src={image5}
+                        src={image4}
                         alt="Programme des activités"
                         width={300}
                         height={450}
-                        class="mx-auto w-full h-auto rounded-lg shadow-md"
+                        class="mx-auto w-full rounded-lg shadow-md"
                     />
-                    <h3 class="text-white font-semibold text-2xl uppercase">
-                        Programme Activités
+                    <h3
+                        class="text-gray-900 font-semibold text-2xl mt-4 hover:text-orange-500 cursor-pointer"
+                    >
+                        Programme
                     </h3>
-                    <p class="text-white text-base max-w-lg mx-auto">
-                        Découvrez le "Programme" : films, avant-premières,
-                        ateliers et expos chaque jour !
+                    <p class="text-gray-600">
+                        Explorez les projections et événements.
                     </p>
-                    <div class="mt-4 flex justify-center gap-4">
-                        <Button
-                            variant="outlined"
-                            url="/engagements"
-                            text="Plus d'infos"
-                        />
-                    </div>
-                </div>
+                </a>
             </div>
 
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="text-center space-y-4">
+            <div class="bg-white rounded-lg shadow-lg p-6 text-left">
+                <a href="/films" class="block">
                     <Image
-                        src={image6}
+                        src={image5}
                         alt="Section Films"
                         width={300}
                         height={450}
-                        class="mx-auto w-full h-auto rounded-lg shadow-md"
+                        class="mx-auto w-full rounded-lg shadow-md"
                     />
-                    <h3 class="text-gray-800 font-semibold text-2xl uppercase">
-                        Section Films
+                    <h3
+                        class="text-gray-900 font-semibold text-2xl mt-4 hover:text-orange-500 cursor-pointer"
+                    >
+                        Films
                     </h3>
-                    <p class="text-gray-600 text-base max-w-lg mx-auto">
-                        Bienvenue dans la Section Films ! Retrouvez ici les
-                        synopsis et la liste complète des films proposés !
+                    <p class="text-gray-600">
+                        Découvrez les affiches, synopsis et bandes-annonces.
                     </p>
-                    <div class="mt-4 flex justify-center gap-4">
-                        <Button
-                            variant="outlined"
-                            url="/engagements"
-                            text="Plus d'infos"
-                        />
-                    </div>
-                </div>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-left">
+                <a href="/invites" class="block">
+                    <Image
+                        src={image6}
+                        alt="Invités du festival"
+                        width={300}
+                        height={450}
+                        class="mx-auto w-full rounded-lg shadow-md"
+                    />
+                    <h3
+                        class="text-gray-900 font-semibold text-2xl mt-4 hover:text-orange-500 cursor-pointer"
+                    >
+                        Invités
+                    </h3>
+                    <p class="text-gray-600">
+                        Rencontrez les intervenants et sportifs.
+                    </p>
+                </a>
             </div>
         </div>
-    </main>
-</Layout>
+        <section class="bg-gray-100 py-12 text-center">
+            <h2 class="text-3xl font-semibold text-gray-900 mb-6">
+                Nos partenaires
+            </h2>
+            <div class="flex justify-center gap-10 flex-wrap">
+                <Image
+                    src={logo1}
+                    alt="Partenaire 1"
+                    width={150}
+                    height={100}
+                    class="rounded-lg shadow-md"
+                />
+                <Image
+                    src={logo2}
+                    alt="Partenaire 2"
+                    width={150}
+                    height={100}
+                    class="rounded-lg shadow-md"
+                />
+                <Image
+                    src={logo3}
+                    alt="Partenaire 3"
+                    width={150}
+                    height={100}
+                    class="rounded-lg shadow-md"
+                />
+                <Image
+                    src={logo4}
+                    alt="Partenaire 3"
+                    width={150}
+                    height={100}
+                    class="rounded-lg shadow-md"
+                />
+            </div>
+        </section>
+    </main></Layout
+>
