@@ -1,14 +1,13 @@
 ---
-// Définition de la prop page, qui détermine quelle section afficher
+import Button from "./Button.astro";
+
 export interface Props {
-    page: string; // Cette prop doit être utilisée pour conditionner l'affichage des sections
+    page: string;
 }
 ---
 
-<!-- Première Section pour la page d'accueil (index) -->
 <section
     class="relative w-full h-screen bg-gray-900 text-white flex items-center justify-center"
-    style={Astro.props.page === "index" ? "display:block" : "display:none"}
 >
     <div
         class="absolute inset-0 bg-cover bg-center opacity-40"
@@ -16,39 +15,15 @@ export interface Props {
     >
     </div>
     <div class="relative text-center max-w-3xl px-6">
-        <h1 class="text-4xl md:text-6xl font-bold">Bienvenue au Vis'Sport</h1>
+        <h1 class="text-4xl md:text-6xl font-bold ">Bienvenue au Vis'Sport</h1>
         <h2 class="text-2xl md:text-4xl font-bold">18-23 AOUT 2025</h2>
         <p class="mt-4 text-lg md:text-xl">
             Venez vivre une expérience unique en alliant sport et cinéma !
             Profitez de films passionnants tout en découvrant l’univers sportif
-            dans une ambiance conviviale. Ne manquez pas cette fusion
-            exceptionnelle de divertissement !
+            dans une ambiance conviviale.
         </p>
-    </div>
-</section>
-
-<!-- Deuxième Section pour la page "A Propos" -->
-<section
-    class="relative w-full h-screen bg-gray-900 text-white flex items-center justify-center"
-    style={Astro.props.page === "apropos" ? "display:block" : "display:none"}
->
-    <div
-        class="absolute inset-0 bg-cover bg-center opacity-50"
-        style="background-image: url('/src/assets/img/axone de montbeliard (1) 1.webp');"
-    >
-    </div>
-    <div class="relative text-center max-w-3xl px-6">
-        <h1 class="text-4xl md:text-6xl font-bold text-orange-500">
-            A PROPOS DU FESTIVAL
-        </h1>
-        <h2 class="text-2xl md:text-4xl font-semibold mt-4 text-white">
-            Découvrez l'univers du Vis'Sport
-        </h2>
-        <p class="mt-6 text-lg md:text-xl text-white">
-            Le Vis'Sport fusionne l'univers du sport et du cinéma dans une
-            expérience immersive unique. Rejoignez-nous pour un événement où
-            passion, énergie et convivialité se rencontrent, du 18 au 23 août
-            2025.
-        </p>
+        <div class="mt-6 flex justify-center gap-4 font-bold">
+            <Button variant="dark" url="/films" text="Qui nous sommes" />
+        </div>
     </div>
 </section>
