@@ -1,5 +1,11 @@
-import PocketBase from "pocketbase";
-const pb = new PocketBase("http://127.0.0.1:8090/_/");
+import PocketBase from 'pocketbase';
+const pb = new PocketBase('http://127.0.0.1:8090');
+
+export default pb;
+
+export function getImageUrl(record, field) {
+    return `http://localhost:8090/api/files/${record.collectionId || 'Film'}/${record.id}/${record[field]}`;
+}
 
 export async function allFilms() {
     return await pb.collection("films").getFullList({
