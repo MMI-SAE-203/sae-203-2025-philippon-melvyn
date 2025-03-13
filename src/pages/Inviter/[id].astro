@@ -1,16 +1,15 @@
 ---
-import { InviterService } from "../../js/backend.mjs";
+import { getById, getFilms, getActivities } from "../../js/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
+
 const { id } = Astro.params;
 
-const Inviter = await InviterService.getById(id);
-
-const Film = await InviterService.getFilms(id);
-
-const Activites = await InviterService.getActivities(id);
+const Inviter = await getById(id);
+const films = await getFilms(id);
+const activites = await getActivities(id);
 ---
 
-<Layout title={`Détails de l'Invité - ${Inviter.nom} ${Inviter.prenom}`}>
+<Layout title={`Détails de l'Invité - ${Inviter.Nom} ${Inviter.Prenom}`}>
     <div class="max-w-4xl mx-auto py-12 px-6 space-y-8">
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <div class="flex items-center gap-6">
@@ -21,8 +20,8 @@ const Activites = await InviterService.getActivities(id);
                 />
                 <div>
                     <h1 class="text-3xl font-semibold text-gray-900">
-                        {Inviter.nom}
-                        {Inviter.prenom}
+                        {Inviter.Nom}
+                        {Inviter.Prenom}
                     </h1>
                     <p class="text-xl text-gray-600">{Inviter.role}</p>
                     <p class="mt-2 text-gray-800">{Inviter.biographie}</p>
@@ -37,19 +36,19 @@ const Activites = await InviterService.getActivities(id);
         </div>
 
         {
-            Film.length > 0 && (
+            films.length > 0 && (
                 <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
                     <h2 class="text-2xl font-semibold text-gray-900 mb-4">
                         Films Associés
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {Film.map((Film) => (
+                        {films.map((film) => (
                             <div
-                                class={Film.id}
+                                class={film.id}
                                 class="bg-gray-50 rounded-lg shadow-md p-4"
                             >
                                 <h3 class="text-xl font-semibold text-gray-800">
-                                    {Film.nom}
+                                    {film.nom}
                                 </h3>
                             </div>
                         ))}
@@ -59,19 +58,19 @@ const Activites = await InviterService.getActivities(id);
         }
 
         {
-            Activites.length > 0 && (
+            activites.length > 0 && (
                 <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
                     <h2 class="text-2xl font-semibold text-gray-900 mb-4">
                         Activités Associées
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {Activites.map((Activites) => (
+                        {activites.map((activite) => (
                             <div
-                                class={Activites.id}
+                                class={activite.id}
                                 class="bg-gray-50 rounded-lg shadow-md p-4"
                             >
                                 <h3 class="text-xl font-semibold text-gray-800">
-                                    {Activites.nom}
+                                    {activite.nom}
                                 </h3>
                             </div>
                         ))}

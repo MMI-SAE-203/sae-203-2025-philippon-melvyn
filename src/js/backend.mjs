@@ -112,83 +112,72 @@ export async function ActivitesByDateRange(startDate, endDate) {
     });
 }
 
-export async function allInvite() {
-    return await pb.collection("Invite").getFullList({
-        sort: "nom"
-    });
-}
+export const InviterService = {
+    async getAll() {
+        return await pb.collection("Invite").getFullList({ sort: "nom" });
+    },
 
-export async function inviteById(id) {
-    return await pb.collection("Invite").getOne(id);
-}
 
-export async function allInvites() {
-    return await pb.collection("Invite").getFullList({
-        sort: "nom"
-    });
-}
+    async addOrUpdate(id, data) {
+        return id
+            ? await pb.collection("Invite").update(id, data)
+            : await pb.collection("Invite").create(data);
+    },
 
-export async function inviteById(id) {
-    return await pb.collection("Invite").getOne(id);
-}
+    async associateActivity(inviteId, activiteId) {
+        return await pb.collection("Invite").update(inviteId, { associe_activite: activiteId });
+    },
 
-export async function addOrUpdateInvite(id, data) {
-    if (id) {
-        return await pb.collection("Invite").update(id, data);
-    } else {
-        return await pb.collection("Invite").create(data);
+    async associateFilm(inviteId, filmId) {
+        return await pb.collection("Invite").update(inviteId, { associe_film: filmId });
+    },
+
+    async add({ nom, prenom, email, biographie, photo, role, associe_activite, associe_film }) {
+        return await pb.collection("Invite").create({ nom, prenom, email, biographie, photo, role, associe_activite, associe_film });
+    },
+
+};
+export async function getFilms(inviteId) {
+    try {
+        const invite = await pb.collection("Invite").getOne(inviteId);
+        const films = invite?.associe_film;
+        if (films && films.length > 0) {
+            return await pb.collection("Film").getFullList({
+                filter: `id IN [${films.join(",")}]`,
+            });
+        } else {
+            return [];
+        }
+    } catch (error) {
+        console.error("Erreur lors de la récupération des films :", error);
+        throw new Error("Erreur lors de la récupération des films.");
     }
 }
-
-export async function associerActiviteInvite(inviteId, activiteId) {
-    const data = {
-        associe_activite: activiteId
-    };
-    return await pb.collection("Invite").update(inviteId, data);
-}
-
-export async function associerFilmInvite(inviteId, filmId) {
-    const data = {
-        associe_film: filmId
-    };
-    return await pb.collection("Invite").update(inviteId, data);
-}
-
-export async function addInvite({ nom, prenom, email, biographie, photo, role, associe_activite, associe_film }) {
-    const data = {
-        nom,
-        prenom,
-        email,
-        biographie,
-        photo,
-        role,
-        associe_activite,
-        associe_film
-    };
-    return await pb.collection("Invite").create(data);
-}
-
-export async function getFilmsByInviteId(inviteId) {
-    const invite = await pb.collection("Invite").getOne(inviteId);
-    const films = invite?.associe_film;
-    if (films) {
-        return await pb.collection("Film").getFullList({
-            filter: `id IN [${films.join(",")}]`
-        });
+export async function getById(id) {
+    try {
+        const invite = await pb.collection("Invite").getOne(id);
+        return invite;
+    } catch (error) {
+        console.error("Erreur lors de la récupération de l'invité : ", error);
+        throw new Error("L'invité n'a pas pu être récupéré.");
     }
-    return [];
 }
+export async function getActivities(inviteId) {
+    try {
+        const invite = await pb.collection("Invite").getOne(inviteId);
+        const activites = invite?.associe_activite;
 
-
-export async function getActivitesByInviteId(inviteId) {
-    const invite = await pb.collection("Invite").getOne(inviteId);
-    const activites = invite?.associe_activite;
-    if (activites) {
-        return await pb.collection("Activites").getFullList({
-            filter: `id IN [${activites.join(",")}]`
-        });
+        if (activites && activites.length > 0) {
+            return await pb.collection("Activites").getFullList({
+                filter: `id IN [${activites.join(",")}]`,
+            });
+        } else {
+            return [];
+        }
+    } catch (error) {
+        console.error("Erreur lors de la récupération des activités :", error);
+        throw new Error("Erreur lors de la récupération des activités.");
     }
-    return [];
 }
 
 export async function addOrUpdateRecord(collection, id, data) {
@@ -198,4 +187,3 @@ export async function addOrUpdateRecord(collection, id, data) {
         return await pb.collection(collection).create(data);
     }
 }
-

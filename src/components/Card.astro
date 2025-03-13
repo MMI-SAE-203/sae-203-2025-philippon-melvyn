@@ -2,7 +2,6 @@
 import { getImageUrl } from "../js/backend.mjs";
 const { film } = Astro.props;
 const AfficheUrl = getImageUrl(film, "image");
-
 ---
 
 <a
@@ -18,9 +17,6 @@ const AfficheUrl = getImageUrl(film, "image");
 
     <div class="p-4">
         <h2 class="text-xl font-semibold">{film.Titre}</h2>
-        <p class="text-gray-600 text-sm mt-2 line-clamp-3">
-            {film.Synopsis}
-        </p>
+        <p class="text-gray-600 text-sm mt-2 line-clamp-3">Voir les détails</p>
     </div>
 </a>
-
