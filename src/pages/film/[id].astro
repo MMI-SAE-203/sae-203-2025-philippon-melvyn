@@ -1,0 +1,95 @@
+---
+import pb, {
+    FilmById,
+    getImageUrl,
+    getPass,
+    getFilmsByGenre,
+    getFilmsByLangue,
+    getFilmsByProduction,
+    getFilmsByDateSortie,
+    getFilmBandeAnnonce,
+} from "../../js/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params;
+const Film = await FilmById(id);
+const imageUrl = getImageUrl(Film);
+const pass = await getPass(id);
+const bandeAnnonce = await getFilmBandeAnnonce(id);
+const filmsSameGenre = await getFilmsByGenre(Film.Genre);
+const filmsSameLangue = await getFilmsByLangue(Film.Langue);
+const filmsSameProduction = await getFilmsByProduction(Film.Production);
+const filmsSameDate = await getFilmsByDateSortie(Film.Date_de_sortie);
+---
+
+<Layout title={Film.Titre}>
+    <div class="max-w-4xl mx-auto py-12 px-6 space-y-8">
+        <div class="flex items-center space-x-6">
+            <div class="flex-1">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">{Film.Titre}</h1>
+                <p class="text-lg text-gray-700 mb-6">{Film.Synopsis}</p>
+            </div>
+            <div class="flex-shrink-0 w-48 h-72 overflow-hidden rounded-lg shadow-lg">
+                <img
+                    src={`http://127.0.0.1:8090/api/files/Film/${Film.id}/${Film.Affiche}`}
+                    alt={Film.Titre}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                />
+            </div>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">Pass d'accès</h2>
+            <p class="text-gray-800">{pass}</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">Bande-annonce</h2>
+            <video controls class="w-full rounded-lg shadow-md">
+                <source src={bandeAnnonce} type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md space-y-4">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">Films similaires</h2>
+
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900">Par Genre</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                    {filmsSameGenre.map((film) => (
+                        <li key={film.id}>{film.Titre}</li>
+                    ))}
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mt-4">Par Langue</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                    {filmsSameLangue.map((film) => (
+                        <li key={film.id}>{film.Titre}</li>
+                    ))}
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mt-4">Par Production</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                    {filmsSameProduction.map((film) => (
+                        <li key={film.id}>{film.Titre}</li>
+                    ))}
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mt-4">Par Date de Sortie</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                    {filmsSameDate.map((film) => (
+                        <li key={film.id}>{film.Titre}</li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </div>
+</Layout>
