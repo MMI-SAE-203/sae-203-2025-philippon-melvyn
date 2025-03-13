@@ -1,71 +1,105 @@
 ---
-import Logo from "../assets/icons/logo.svg";
+import Logo from "../assets/icons/IconLogo.svg";
 import Button from "../components/Button.astro";
 const currentPath = Astro.url.pathname;
 ---
 
 <header
-    class="flex items-center justify-between px-4 gap-8 border-b-2 border-b-indigo-100 h-20"
+    class="flex items-center justify-between px-6 lg:px-12 border-b border-gray-300 h-20 bg-white shadow-md"
 >
-    <a href="/">
-        <Logo />
+    <a href="/" class="flex items-center">
+        <Logo class="w-16 h-auto" />
     </a>
+
     <button
         id="menu-btn"
-        class="group relative z-10 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-black *:transition *:duration-300"
+        class="group relative z-20 flex h-6 w-8 flex-col justify-between lg:hidden *:block *:ease-in-out *:h-0.5 *:w-full *:rounded-full *:bg-gray-800 *:transition-all *:duration-300"
         aria-label="Menu"
         aria-controls="menu"
         aria-expanded="false"
     >
         <span
-            class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"
+            class="group-aria-expanded:translate-y-2 group-aria-expanded:rotate-45"
         ></span>
+        <span class="group-aria-expanded:opacity-0"></span>
         <span
-            class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"
+            class="group-aria-expanded:-translate-y-2 group-aria-expanded:-rotate-45"
         ></span>
     </button>
+
     <nav
         id="menu"
-        class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-indigo-50 visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
+        class="fixed inset-0 bg-white/90 backdrop-blur-lg z-10 flex flex-col items-center justify-center opacity-100 visible gap-4 transform transition-all duration-300
+              max-lg:aria-hidden:opacity-0 max-lg:aria-hidden:invisible max-lg:aria-hidden:translate-y-[-10px]
+              lg:relative lg:bg-transparent lg:flex-row lg:opacity-100 lg:visible lg:translate-y-0"
         aria-hidden="true"
     >
-        <ul class="flex flex-col gap-2 lg:flex-row">
+        <ul class="flex flex-col gap-3 text-lg lg:flex-row lg:gap-5">
             <li>
                 <a
-                    class={`block p-4 rounded-lg text-gray-500 ${currentPath === "/properties" ? "text-indigo-600 font-bold max-lg:bg-indigo-100 max-lg:rounded-lg" : ""}`}
-                    href="/programme">Programme</a
+                    class={`block px-4 py-2 rounded-lg transition-all duration-200 font-semibold text-gray-900 
+              hover:bg-yellow-400 hover:text-white lg:hover:bg-yellow-400 lg:hover:text-white
+              ${currentPath === "/programme" ? "bg-white text-white" : ""}`}
+                    href="/programme"
                 >
-            </li>
-            <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/apropos"
-                    >A propos</a
-                >
-            </li>
-            <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/Activités"
-                    >Activités</a
-                >
-            </li>
-            <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/Invités"
-                    >Invités</a
-                >
+                    Programme
+                </a>
             </li>
             <li>
                 <a
-                    class="block p-4 rounded-lg text-gray-500"
-                    href="/infospratique">Infos Pratiques</a
+                    class={`block px-4 py-2 rounded-lg transition-all duration-200 font-semibold text-gray-900 
+              hover:bg-yellow-400 hover:text-white lg:hover:bg-yellow-400 lg:hover:text-white
+              ${currentPath === "/programme" ? "bg-white text-white" : ""}`}
+                    href="/apropos"
                 >
+                    A propos
+                </a>
             </li>
             <li>
-                <a class="block p-4 rounded-lg text-gray-500" href="/Contact"
-                    >Contact</a
+                <a
+                    class={`block px-4 py-2 rounded-lg transition-all duration-200 font-semibold text-gray-900 
+              hover:bg-yellow-400 hover:text-white lg:hover:bg-yellow-400 lg:hover:text-white
+              ${currentPath === "/programme" ? "bg-white text-white" : ""}`}
+                    href="/activite"
                 >
+                    Activités
+                </a>
+            </li>
+            <li>
+                <a
+                    class={`block px-4 py-2 rounded-lg transition-all duration-200 font-semibold text-gray-900 
+              hover:bg-yellow-400 hover:text-white lg:hover:bg-yellow-400 lg:hover:text-white
+              ${currentPath === "/programme" ? "bg-white text-white" : ""}`}
+                    href="/invite"
+                >
+                    Invités
+                </a>
+            </li>
+            <li>
+                <a
+                    class={`block px-4 py-2 rounded-lg transition-all duration-200 font-semibold text-gray-900 
+              hover:bg-yellow-400 hover:text-white lg:hover:bg-yellow-400 lg:hover:text-white
+              ${currentPath === "/programme" ? "bg-white text-white" : ""}`}
+                    href="/infospratique"
+                >
+                    Infos Pratiques
+                </a>
+            </li>
+            <li>
+                <a
+                    class={`block px-4 py-2 rounded-lg transition-all duration-200 font-semibold text-gray-900 
+              hover:bg-yellow-400 hover:text-white lg:hover:bg-yellow-400 lg:hover:text-white
+              ${currentPath === "/programme" ? "bg-white text-white" : ""}`}
+                    href="/Contact"
+                >
+                    Contact
+                </a>
             </li>
         </ul>
-        <div class="flex items-center justify-center gap-4 px-4">
-            <Button variant="outlined" url="/login" text="S'inscrire" />
-            <Button variant="dark" url="/signup" text="Se connecter" />
+
+        <div class="flex items-center justify-center gap-3 px-4 mt-6 lg:mt-0">
+            <Button variant="outlined" url="/login" text="Inscription" />
+            <Button variant="dark" url="/signup" text="Connexion" />
         </div>
     </nav>
 </header>
@@ -78,10 +112,9 @@ const currentPath = Astro.url.pathname;
     if (toggle && nav) {
         toggle.addEventListener("click", () => {
             const isOpen = toggle.ariaExpanded === "true";
-            const isClosed = !isOpen;
-            toggle.ariaExpanded = String(isClosed);
+            toggle.ariaExpanded = String(!isOpen);
             nav.ariaHidden = String(isOpen);
-            page.classList.toggle("noscroll", isClosed);
+            page.classList.toggle("noscroll", !isOpen);
         });
     }
 </script>

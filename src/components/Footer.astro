@@ -1,76 +1,88 @@
 ---
-import Logo from "../assets/icons/logo.svg";
+import Logo from "../assets/icons/IconLogo.svg";
 import Facebook from "../assets/icons/IconFacebook.svg";
 import Instagram from "../assets/icons/IconInstagram.svg";
 import Twitter from "../assets/icons/IconTwitter.svg";
-import Youtube from "../assets/icons/IconYoutube.svg";
 ---
 
-<footer
-    class="w-full mt-auto space-y-25 pt-20 lg:grid lg:grid-cols-6 lg:gap-5 lg:space-y-0 bg-black"
->
-    <Logo />
+<footer class="w-full mt-auto bg-black text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div
+            class="flex flex-col lg:flex-row justify-between items-center gap-10"
+        >
+            <a href="/" class="flex items-center gap-4">
+                <Logo class="w-14 h-auto fill-white" />
+                <h1 class="text-3xl font-bold tracking-wide">Vis'Sport</h1>
+            </a>
+            <nav>
+                <ul
+                    class="flex flex-col lg:flex-row gap-5 text-center text-lg font-semibold"
+                >
+                    <li>
+                        <a
+                            class="hover:text-yellow-400 transition"
+                            href="/programme">Programme</a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:text-yellow-400 transition"
+                            href="/apropos">A propos</a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:text-yellow-400 transition"
+                            href="/activites">Activités</a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:text-yellow-400 transition"
+                            href="/invites">Invités</a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:text-yellow-400 transition"
+                            href="/infospratique">Infos Pratiques</a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:text-yellow-400 transition"
+                            href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-    <nav
-        class="px-5 columns-1 text-sm lg:text-base lg:columns-5 lg:col-span-4 lg:px-0"
-    >
-        <div>
-            <ul class="text-white">
+        <div class="border-t border-gray-700 my-10 w-full"></div>
+        <div
+            class="flex flex-col lg:flex-row justify-between items-center gap-6"
+        >
+            <p class="text-gray-400 text-sm">
+                ©2024 Vis'Sport. Tous droits réservés.
+            </p>
+            <ul class="flex gap-8">
                 <li>
-                    <a class="block p-2 rounded-lg text-white" href="/programme"
-                        >Programme</a
-                    >
+                    <a href="https://facebook.com" aria-label="Facebook">
+                        <Facebook
+                            class="w-10 h-10 text-white fill-white hover:text-yellow-400 transition"
+                        />
+                    </a>
                 </li>
                 <li>
-                    <a class="block p-2 rounded-lg text-white" href="/A propos"
-                        >A propos</a
-                    >
+                    <a href="https://instagram.com" aria-label="Instagram">
+                        <Instagram
+                            class="w-10 h-10 text-white fill-white hover:text-yellow-400 transition"
+                        />
+                    </a>
                 </li>
                 <li>
-                    <a class="block p-2 rounded-lg text-white" href="/Activités"
-                        >Activités</a
-                    >
+                    <a href="https://twitter.com" aria-label="Twitter">
+                        <Twitter
+                            class="w-10 h-10 text-white fill-white hover:text-yellow-400 transition"
+                        />
+                    </a>
                 </li>
-                <li>
-                    <a class="block p-2 rounded-lg text-white" href="/Invités"
-                        >Invités</a
-                    >
-                </li>
-                <li>
-                    <a
-                        class="block p-2 rounded-lg text-white"
-                        href="/Infos Pratique">Infos Pratiques</a
-                    >
-                </li>
+                
             </ul>
         </div>
-        <div></div>
-    </nav>
-    <div
-        class="px-40 text-gray-200 border-t border-white py-10 space-y-6 text-center lg:col-span-6 lg:flex lg:justify-center lg:items-center lg:space-y-0"
-    >
-        <p>©2021 Estatery. All rights reserved</p>
-        <ul class="flex justify-center gap-3">
-            <li class="flex items-center gap-4">
-                <a href="https://facebook.com" aria-label="Facebook"
-                    ><Facebook class="w-8 h-8 text-white fill-current" /></a
-                >
-            </li>
-            <li class="flex items-center justify-end gap-4">
-                <a href="https://instagram.com" aria-label="Instagram"
-                    ><Instagram class="w-8 h-8 text-white fill-current" /></a
-                >
-            </li>
-            <li class="flex items-center justify-end gap-4">
-                <a href="https://twitter.com" aria-label="Twitter"
-                    ><Twitter class="w-14 h-14 text-white fill-current" /></a
-                >
-            </li>
-            <li class="flex items-center justify-end gap-4">
-                <a href="https://youtube.com" aria-label="Youtube"
-                    ><Youtube class="w-8 h-8 text-white fill-current" /></a
-                >
-            </li>
-        </ul>
     </div>
 </footer>
