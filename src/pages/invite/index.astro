@@ -3,13 +3,13 @@ import pb from "../../js/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import CardInviter from "../../components/CardInviter.astro";
 
-const Film = await pb.collection("Inviter").getFullList();
+const Invite= await pb.collection("Inviter").getFullList();
 ---
 
-<Layout title="Programme des Inviter">
-    <h1 class="text-3xl font-bold mb-6">Liste des films</h1>
+<Layout title="Programme des Invités">
+    <h1 class="text-3xl font-bold mb-6">Liste des invités</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-12 pt-0">
-        {Film.map(Inviter) => <CardInviter Inviter={Inviter} />)}
+        {Invite.map((Inviter) => <CardInviter Inviter={Inviter} />)}
     </div>
 </Layout>
