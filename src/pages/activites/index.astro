@@ -1,0 +1,15 @@
+---
+import pb from "../../js/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import CardActivite from "../../components/CardActivite.astro";
+
+const Activites = await pb.collection("Activites").getFullList();
+---
+
+<Layout title="Programme des Activités">
+    <h1 class="text-3xl font-bold mb-6">Liste des activités</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-12 pt-0">
+        {Activites.map((Activites) => <CardActivite Activites={Activites} />)}
+    </div>
+</Layout>

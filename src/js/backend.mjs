@@ -3,6 +3,7 @@ const pb = new PocketBase('http://127.0.0.1:8090');
 
 
 export default pb;
+
 export function getImageUrl(record, field) {
     return `http://localhost:8090/api/files/${record.collectionId || 'Film'}/${record.id}/${record[field]}`;
 }
@@ -48,9 +49,66 @@ export async function getFilmBandeAnnonce(filmId) {
     return film.Bande_annonce;
 }
 
+export async function FilmById(id) {
+    return await pb.collection("Film").getOne(id);
+}
+
 export async function allActivites() {
-    return await pb.collection("Activité").getFullList({
+    return await pb.collection("Activites").getFullList({
         sort: "Date_de_sortie"
+    });
+}
+
+export async function ActivitéByAnimateurNom(nom) {
+    const organisateur = await pb.collection("Activites").getFirstListItem(`nom = '${nom}'`);
+    return await activitesByAnimateurId(organisateur.id);
+}
+
+export async function ActiviteById(id) {
+    return await pb.collection("Activites").getOne(id);
+}
+
+export async function ActiviteByAnimateurId(id) {
+    return await pb.collection("Activites").getFullList({
+        filter: `animateur_id = '${id}'`
+    });
+}
+
+export async function allActivites() {
+    return await pb.collection("Activites").getFullList({
+        sort: "date_activité"
+    });
+}
+
+export async function ActivitesByTitre(titre) {
+    return await pb.collection("Activites").getFirstListItem(`titre = '${titre}'`);
+}
+
+export async function ActivitesByLieu(lieu) {
+    return await pb.collection("Activites").getFullList({
+        filter: `lieu = '${lieu}'`
+    });
+}
+
+
+export async function ActivitesAfficheSportiveById(id) {
+    const activite = await pb.collection("Activites").getOne(id);
+    return activite?.Affiche_sportive || null;
+}
+
+export async function ActivitesDetailsById(id) {
+    const activite = await pb.collection("Activites").getOne(id);
+    return {
+        titre: activite?.titre,
+        description: activite?.description,
+        date_activité: activite?.date_activité,
+        lieu: activite?.lieu
+    };
+}
+
+export async function ActivitesByDateRange(startDate, endDate) {
+    return await pb.collection("Activites").getFullList({
+        filter: `date_activité >= '${startDate}' && date_activité <= '${endDate}'`
     });
 }
 
@@ -60,28 +118,11 @@ export async function allInvite() {
     });
 }
 
-export async function FilmById(id) {
-    return await pb.collection("Film").getOne(id);
-}
-
-export async function ActiviteById(id) {
-    return await pb.collection("Activité").getOne(id);
-}
-
 export async function inviteById(id) {
     return await pb.collection("Invite").getOne(id);
 }
 
-export async function ActiviteByAnimateurId(id) {
-    return await pb.collection("Activite").getFullList({
-        filter: `animateur_id = '${id}'`
-    });
-}
 
-export async function ActivitéByAnimateurNom(nom) {
-    const organisateur = await pb.collection("Activité").getFirstListItem(`nom = '${nom}'`);
-    return await activitesByAnimateurId(organisateur.id);
-}
 
 export async function addOrUpdateRecord(collection, id, data) {
     if (id) {
