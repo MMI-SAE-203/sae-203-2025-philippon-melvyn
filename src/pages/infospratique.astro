@@ -111,30 +111,34 @@ import Layout from "../layouts/Layout.astro";
         <section class="mb-16">
             <h2 class="text-3xl font-semibold text-orange-500 mb-6">❓ FAQ</h2>
             <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-                <div x-data="{ open: null }" class="space-y-4">
-                    <div>
-                        Où acheter les billets ?
-
-                        <p x-show="open === 1" class="text-gray-700 mt-2">
+                <div class="space-y-4">
+                    <details class="bg-white p-4 rounded-lg shadow">
+                        <summary class="cursor-pointer font-semibold"
+                            >Où acheter les billets ?</summary
+                        >
+                        <p class="mt-2 text-gray-700">
                             Les billets sont disponibles en ligne sur notre site
                             et sur place.
                         </p>
-                    </div>
-                    <div>
-                        Puis-je me faire rembourser ?
-
-                        <p x-show="open === 2" class="text-gray-700 mt-2">
+                    </details>
+                    <details class="bg-white p-4 rounded-lg shadow">
+                        <summary class="cursor-pointer font-semibold"
+                            >Puis-je me faire rembourser ?</summary
+                        >
+                        <p class="mt-2 text-gray-700">
                             Oui, sous certaines conditions, contactez-nous pour
                             plus de détails.
                         </p>
-                    </div>
-                    <div>
-                        Y a-t-il des places PMR ?
-                        <p x-show="open === 3" class="text-gray-700 mt-2">
+                    </details>
+                    <details class="bg-white p-4 rounded-lg shadow">
+                        <summary class="cursor-pointer font-semibold"
+                            >Y a-t-il des places PMR ?</summary
+                        >
+                        <p class="mt-2 text-gray-700">
                             Oui, des espaces sont réservés pour les personnes à
                             mobilité réduite.
                         </p>
-                    </div>
+                    </details>
                 </div>
             </div>
         </section>
