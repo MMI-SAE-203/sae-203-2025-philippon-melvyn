@@ -3,19 +3,28 @@ import pb, { getImageUrl } from "../../js/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 
 const { id } = Astro.params;
-const Activites = await pb.collection("Activites").getOne(id);
-const imageUrl = getImageUrl(Activites, "Affiche");
+const Activites = await pb.collection("Activites").getOne(id as string);
+const imageUrl = getImageUrl(Activites, "Affiche_sportive");
 ---
 
-<Layout title={Activites.Titre}>
+<Layout title={Activites.titre}>
     <div class="max-w-4xl mx-auto py-12 px-6 space-y-8">
         <div class="flex items-center space-x-6">
             <div class="flex-1">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">
-                    {Activites.Titre}
+                    {Activites.titre}
                 </h1>
                 <p class="text-lg text-gray-700 mb-6">
-                    {Activites.Description}
+                    {Activites.description}
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    {Activites.lieu}
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    {Activites.date_de_sortie}
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    {Activites.genre}
                 </p>
             </div>
             <div
@@ -23,18 +32,11 @@ const imageUrl = getImageUrl(Activites, "Affiche");
             >
                 <img
                     src={imageUrl}
-                    alt={Activites.Titre}
+                    alt={Activites.titre}
                     class="w-full h-full object-cover"
                     loading="lazy"
                 />
             </div>
-        </div>
-
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">
-                Description
-            </h2>
-            <p class="text-gray-800">{Activites.Description}</p>
         </div>
     </div>
 </Layout>

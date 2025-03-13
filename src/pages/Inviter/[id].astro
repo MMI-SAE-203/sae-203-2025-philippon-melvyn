@@ -1,17 +1,13 @@
 ---
-import {
-    inviteById,
-    getFilmsByInviteId,
-    getActivitesByInviteId,
-    getImageUrl,
-} from "../../js/backend.mjs";
+import { InviterService } from "../../js/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
-
 const { id } = Astro.params;
 
-const Inviter = await inviteById(id);
-const Inviter = await getFilmsByInviteId(id);
-const activites = await getActivitesByInviteId(id);
+const Inviter = await InviterService.getById(id);
+
+const Film = await InviterService.getFilms(id);
+
+const Activites = await InviterService.getActivities(id);
 ---
 
 <Layout title={`Détails de l'Invité - ${Inviter.nom} ${Inviter.prenom}`}>
@@ -19,7 +15,7 @@ const activites = await getActivitesByInviteId(id);
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <div class="flex items-center gap-6">
                 <img
-                    src={getImageUrl(Inviter, "photo")}
+                    src={Inviter.photo}
                     alt="Photo de l'invité"
                     class="w-32 h-32 object-cover rounded-full border-4 border-yellow-500"
                 />
@@ -41,28 +37,20 @@ const activites = await getActivitesByInviteId(id);
         </div>
 
         {
-            Inviter.length > 0 && (
+            Film.length > 0 && (
                 <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
                     <h2 class="text-2xl font-semibold text-gray-900 mb-4">
                         Films Associés
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {Inviter.map((Inviter) => (
+                        {Film.map((Film) => (
                             <div
-                                key={Inviter.id}
+                                class={Film.id}
                                 class="bg-gray-50 rounded-lg shadow-md p-4"
                             >
-                                <img
-                                    src={getImageUrl(Inviter, "photo")}
-                                    alt={Inviter.NomPrenom}
-                                    class="w-full h-48 object-cover rounded-lg mb-4"
-                                />
                                 <h3 class="text-xl font-semibold text-gray-800">
-                                    {Inviter.NomPrenom}
+                                    {Film.nom}
                                 </h3>
-                                <p class="text-gray-600 mt-2">
-                                    {Inviter.biographie}
-                                </p>
                             </div>
                         ))}
                     </div>
@@ -77,22 +65,14 @@ const activites = await getActivitesByInviteId(id);
                         Activités Associées
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {activites.map((activite) => (
+                        {Activites.map((Activites) => (
                             <div
-                                key={activite.id}
+                                class={Activites.id}
                                 class="bg-gray-50 rounded-lg shadow-md p-4"
                             >
                                 <h3 class="text-xl font-semibold text-gray-800">
-                                    {activite.titre}
+                                    {Activites.nom}
                                 </h3>
-                                <p class="text-gray-600 mt-2">
-                                    {activite.description}
-                                </p>
-                                <p class="text-gray-500 mt-2">
-                                    {new Date(
-                                        activite.date_activité,
-                                    ).toLocaleDateString()}
-                                </p>
                             </div>
                         ))}
                     </div>
