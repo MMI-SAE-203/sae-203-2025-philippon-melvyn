@@ -89,7 +89,6 @@ export async function ActivitesByLieu(lieu) {
     });
 }
 
-
 export async function ActivitesAfficheSportiveById(id) {
     const activite = await pb.collection("Activites").getOne(id);
     return activite?.Affiche_sportive || null;
@@ -116,7 +115,6 @@ export const InviterService = {
         return await pb.collection("Invite").getFullList({ sort: "nom" });
     },
 
-
     async addOrUpdate(id, data) {
         return id
             ? await pb.collection("Invite").update(id, data)
@@ -135,12 +133,13 @@ export const InviterService = {
         return await pb.collection("Invite").create({ nom, prenom, email, biographie, photo, role, associe_activite, associe_film });
     },
 };
+
 export async function getFilms(inviteId) {
     return getRelatedItems(inviteId, "associe_film", "Film");
 }
 
 export async function getById(id) {
-    return pb.collection("Invite").getOne(id).catch(handleError("l'invité"));
+    return await pb.collection("Invite").getOne(id).catch(handleError("l'invité"));
 }
 
 export async function getActivities(inviteId) {
@@ -159,7 +158,7 @@ export async function getRelatedItems(inviteId, field, collection) {
 
 const handleError = (context) => (error) => {
     console.error(`Erreur lors de ${context} :`, error);
-    throw new Error(`Erreur lors de ${context}.`);
+    throw new Error(`Erreur lors de ${context}`);
 };
 
 export async function addOrUpdateRecord(collection, id, data) {
