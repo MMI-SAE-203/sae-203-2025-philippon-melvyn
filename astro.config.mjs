@@ -1,10 +1,14 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
+import node from '@astrojs/node';
 
-// https://astro.build/config
 export default defineConfig({
-    output: "server",
-    integrations: [tailwind()],
-    experimental: { svg: true },
+    output: 'server',
+    adapter: node(),
+    site: 'https://sae203.melvyn-philippon.fr',
+    integrations: [
+        // Ajoutez ici d'autres intégrations si nécessaire
+    ],
+    build: {
+        // Autres configurations de build si nécessaire
+    },
 });
