@@ -9,7 +9,7 @@ const Inviter = await pb.collection("Inviter").getFullList();
 <Layout title="Programme des Invités">
     <h1 class="text-3xl font-bold mb-6">Liste des invités</h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-12 pt-0">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {Inviter.map((Inviter) => <CardInviter Inviter={Inviter} />)}
     </div>
 </Layout>
