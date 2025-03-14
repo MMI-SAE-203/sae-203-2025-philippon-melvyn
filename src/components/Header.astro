@@ -13,17 +13,19 @@ const currentPath = Astro.url.pathname;
 
     <button
         id="menu-btn"
-        class="group relative z-20 flex h-6 w-8 flex-col justify-between lg:hidden *:block *:ease-in-out *:h-0.5 *:w-full *:rounded-full *:bg-gray-800 *:transition-all *:duration-300"
+        class="group relative z-20 flex h-6 w-8 flex-col justify-between lg:hidden"
         aria-label="Menu"
         aria-controls="menu"
         aria-expanded="false"
     >
         <span
-            class="group-aria-expanded:translate-y-2 group-aria-expanded:rotate-45"
+            class="block h-0.5 w-full rounded-full bg-black transition-all duration-300 group-aria-expanded:translate-y-2 group-aria-expanded:rotate-45"
         ></span>
-        <span class="group-aria-expanded:opacity-0"></span>
         <span
-            class="group-aria-expanded:-translate-y-2 group-aria-expanded:-rotate-45"
+            class="block h-0.5 w-full rounded-full bg-black transition-all duration-300 group-aria-expanded:opacity-0"
+        ></span>
+        <span
+            class="block h-0.5 w-full rounded-full bg-black transition-all duration-300 group-aria-expanded:-translate-y-2 group-aria-expanded:-rotate-45"
         ></span>
     </button>
 
@@ -111,9 +113,9 @@ const currentPath = Astro.url.pathname;
 
     if (toggle && nav) {
         toggle.addEventListener("click", () => {
-            const isOpen = toggle.ariaExpanded === "true";
-            toggle.ariaExpanded = String(!isOpen);
-            nav.ariaHidden = String(isOpen);
+            const isOpen = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!isOpen));
+            nav.setAttribute("aria-hidden", String(isOpen));
             page.classList.toggle("noscroll", !isOpen);
         });
     }
