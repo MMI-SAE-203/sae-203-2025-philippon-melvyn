@@ -3,7 +3,7 @@ import pb from "../../js/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import CardInviter from "../../components/CardInviter.astro";
 
-const Inviter= await pb.collection("Inviter").getFullList();
+const Inviter = await pb.collection("Inviter").getFullList();
 ---
 
 <Layout title="Programme des Invités">
