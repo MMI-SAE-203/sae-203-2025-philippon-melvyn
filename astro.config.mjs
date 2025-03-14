@@ -8,9 +8,7 @@ export default defineConfig({
     site: 'https://sae203.melvyn-philippon.fr',
     integrations: [
         tailwind(),
-        // Ajoutez ici d'autres intégrations si nécessaire
     ],
-    build: {
-        // Autres configurations de build si nécessaire
+    build: {e
     },
 });
